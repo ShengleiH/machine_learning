@@ -6,29 +6,29 @@ IMAGE_SIZE = 28
 IMAGE_PIXELS = IMAGE_SIZE * IMAGE_SIZE
 
 
-def weights_varialble(shape, input_units):
+def weights_variable(shape, input_units):
     initial = tf.truncated_normal(shape, stddev=1.0/math.sqrt(float(input_units)))
     return tf.Variable(initial, name='weights')
 
 
 def biases_variable(shape):
-    initial = tf.zeros(shape)
+    initial = tf.constant(0.1, shape=shape)
     return tf.Variable(initial, name='biases')
 
 
 def inference(images, hidden1_units, hidden2_units):
     with tf.name_scope('hidden1'):
-        weights = weights_varialble([IMAGE_PIXELS, hidden1_units], IMAGE_PIXELS)
+        weights = weights_variable([IMAGE_PIXELS, hidden1_units], IMAGE_PIXELS)
         biases = biases_variable([hidden1_units])
         hidden1 = tf.nn.relu(tf.matmul(images, weights) + biases)
 
     with tf.name_scope('hidden2'):
-        weights = weights_varialble([hidden1_units, hidden2_units], hidden1_units)
+        weights = weights_variable([hidden1_units, hidden2_units], hidden1_units)
         biases = biases_variable([hidden2_units])
         hidden2 = tf.nn.relu(tf.matmul(hidden1, weights) + biases)
 
     with tf.name_scope('softmax_linear'):
-        weights = weights_varialble([hidden2_units, NUM_CLASSES], hidden2_units)
+        weights = weights_variable([hidden2_units, NUM_CLASSES], hidden2_units)
         biases = biases_variable([NUM_CLASSES])
         logits = tf.matmul(hidden2, weights) + biases
 

@@ -1,5 +1,4 @@
 from __future__ import division
-from __future__ import print_function
 
 import os.path
 import time
@@ -10,7 +9,7 @@ from tensorflow.examples.tutorials.mnist import input_data
 import naiveFNN
 
 flags = tf.app.flags
-flags.DEFINE_float('learning_rate', 0.01, 'Initial learning rate.')
+flags.DEFINE_float('learning_rate', 0.1, 'Initial learning rate.')
 flags.DEFINE_integer('max_steps', 2000, 'Number of steps to run trainer.')
 flags.DEFINE_integer('hidden1', 128, 'Number of units in hidden layer 1.')
 flags.DEFINE_integer('hidden2', 32, 'Number of units in hidden layer 2.')
@@ -21,8 +20,8 @@ FLAGS = flags.FLAGS
 
 
 def placeholder_inputs(batch_size):
-    images_placeholder = tf.placeholder(tf.float32, shape=(batch_size, naiveFNN.IMAGE_PIXELS))
-    labels_placeholder = tf.placeholder(tf.int32, shape=(batch_size))
+    images_placeholder = tf.placeholder(tf.float32, shape=[batch_size, naiveFNN.IMAGE_PIXELS])
+    labels_placeholder = tf.placeholder(tf.int32, shape=batch_size)
     return images_placeholder, labels_placeholder
 
 
@@ -56,7 +55,7 @@ def do_eval(sess, eval_correct, images_placeholder, labels_placeholder, data_set
     '''
     for step in xrange(steps_per_epoch):
         feed_dict = fill_feed_dict(data_set, images_placeholder, labels_placeholder)
-        true_count += sess.run(eval_correct, feed_dict=feed_dict)
+        true_count += sess.run(eval_correct, feed_dict)
 
     precision = true_count / num_examples
     print(' Num examples: %d Num correct: %d Precision @ 1: %0.04f' %(num_examples, true_count, precision))
@@ -91,8 +90,7 @@ def run_training():
             start_time = time.time()
 
             feed_dict = fill_feed_dict(data_sets.train, images_placeholder, labels_placeholder)
-            _, loss_value = sess.run([train_op, loss], feed_dict=feed_dict)
-            # loss_value = sess.run(train_op, feed_dict=feed_dict)
+            _, loss_value = sess.run([train_op, loss], feed_dict)
 
             duration = time.time() - start_time
 

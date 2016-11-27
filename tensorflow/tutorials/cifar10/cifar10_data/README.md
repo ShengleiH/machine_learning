@@ -1,3 +1,5 @@
 Please download dataset to correct path.
 
-More detials in: shenglei.live
+DATA_URL is: http://www.cs.toronto.edu/~kriz/cifar-10-binary.tar.gz
+
+More detials in: http://shenglei.live

@@ -1,9 +1,21 @@
-# Basic-machine-Learning
+# Codes for Tensorflow Tutorials
 
-We are learning machine learning from scratch.
+This repository is for tensorflow tutorials.
 
-This repo is designed to record the learning notes and code of [this book][1] written by Li Hang.
+1. MNIST recognition - self build DNN
 
-Two contributors: BenchengY,ShengleiH
+2. IRIS flow recognition - Tensorflow DNNClassifier
 
-[1]: www.shenglei.live
+3. CIFAR recognition - CNN
+
+The detailed notes are on my posts:
+
+1. [MNIST recognition][1]
+
+2. [IRIS flow recognition][2]
+
+3. [CIFAR recognition][3]
+
+[1]: http://shenglei.live/machine_learning/posts/2016/11/05/maching-learning-tensorflow-1/
+[2]: http://shenglei.live/machine_learning/posts/2016/11/12/maching-learning-tensorflow-4/
+[3]: http://shenglei.live/machine_learning/posts/2016/11/25/maching-learning-tensorflow-5/

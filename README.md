@@ -1,2 +1,5 @@
-# machine_learning
-I am learning machine learning
+# Tensorflow Tutorials
+
+This is the repository for tensorflow tutorials
+
+Details information is in ![this post][shenglei.live]

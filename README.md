@@ -6,4 +6,4 @@ This repo is designed to record the learning notes and code of [this book][1] wr
 
 Two contributors: BenchengY,ShengleiH
 
-[1]: http://www.shenglei.live
+[1]: www.shenglei.live
